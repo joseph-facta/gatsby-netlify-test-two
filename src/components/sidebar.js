@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 
-export default function Sidebar(props) {
-    
+const Sidebar = () => {
     return (
         <React.Fragment>
             <aside className="sidebar">
@@ -20,6 +19,4 @@ export default function Sidebar(props) {
     );
 }
 
-Sidebar.propTypes = {
-    width: PropTypes.string
-};
+export default Sidebar;
