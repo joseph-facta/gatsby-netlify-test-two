@@ -252,5 +252,5 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: Subtitle, name: subtitle, widget: string }
           - { label: Body, name: body, widget: markdown }
-          - { label: Sidebar Title, name: sidebar_title, widget: string }
-          - { label: Sidebar Content, name: sidebar_content, widget: markdown }
+          - { label: Sidebar Title, name: sidebartitle, widget: string }
+          - { label: Sidebar Content, name: sidebarcontent, widget: markdown }
