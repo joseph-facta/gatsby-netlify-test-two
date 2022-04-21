@@ -244,3 +244,14 @@ collections:
                   },
                 ],
             }
+      - file: "src/pages/sidebar/index.md"
+        label: "Sidebar"
+        name: "sidebar"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              default: "sidebar-page",
+              widget: "hidden",
+          }
+          - { label: Title, name: title, widget: string }
