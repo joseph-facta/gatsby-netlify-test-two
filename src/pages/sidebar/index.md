@@ -2,10 +2,9 @@
 templateKey: sidebar-page
 path: /sidebar
 title: Editor Sidebar Page Title w
-subtitle: Editor Page Subtitle
-sidebar_title: Editor Sidebar Title
-sidebar_subtitle: Sidebar S
-sidebar_content: |-
+subtitle: Editor Page Subtitle AB
+sidebartitle: Editor Sidebar Title
+sidebarcontent: |-
   * Editor Item
   * Editor Item
   * Editor Item

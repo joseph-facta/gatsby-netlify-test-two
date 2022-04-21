@@ -70,8 +70,8 @@ export const SidebarPageQuery = graphql`
         frontmatter {
           title
           subtitle
-          sidebar_title
-          sidebar_content
+          sidebartitle
+          sidebarcontent
         }   
     }
 }
