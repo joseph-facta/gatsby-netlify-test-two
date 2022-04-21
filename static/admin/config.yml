@@ -248,10 +248,9 @@ collections:
         label: "Sidebar"
         name: "sidebar"
         fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              default: "sidebar-page",
-              widget: "hidden",
-          }
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sidebar-page"}
           - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: string }
+          - { label: Body, name: body, widget: markdown }
+          - { label: Sidebar Title, name: sidebar_title, widget: string }
+          - { label: Sidebar Content, name: sidebar_content, widget: markdown }
