@@ -1,7 +1,7 @@
 ---
 templateKey: sidebar-page
 path: /sidebar
-title: Editor Sidebar Page Title w
+title: From LiVE
 subtitle: Editor Page Subtitle AB
 sidebartitle: Editor Sidebar Title
 sidebarcontent: |-
