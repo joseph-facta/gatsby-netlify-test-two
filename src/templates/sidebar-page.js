@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import Sidebar from "../components/Sidebar";
 import PropTypes from "prop-types";
 import Content, { HTMLContent } from "../components/Content";
+//import Foundation from "foundation-sites";
 
 // eslint-disable-next-line
 export const SidebarPageTemplate = ({
@@ -12,17 +13,18 @@ export const SidebarPageTemplate = ({
     body,
     bodyComponent,
     sidebartitle,
-    sidebarcontent
+    sidebarcontent,
 }) => {
     const PageContent = bodyComponent || Content;
+    const SidebarCols = 'small-12 medium-4'; 
   return (
-    <div className="sidebar-wrapper">
-        <main className="main-content">
+    <div className = "sidebar-wrapper grid-x" >
+        <main className="main-content small-12 medium-8">
             <h1>{title}</h1>
             <h2>{subtitle}</h2>
             <PageContent className="content" content={body}/>
         </main>
-        <Sidebar  content={sidebarcontent} title={sidebartitle} />
+        <Sidebar content={sidebarcontent} title={sidebartitle} cols={SidebarCols}/>
     </div>
   );
 };
@@ -31,8 +33,8 @@ SidebarPageTemplate.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
     body: PropTypes.node,
-    sidebar_title: PropTypes.string.isRequired,
-    sidebar_content: PropTypes.string
+    sidebartitle: PropTypes.string.isRequired,
+    sidebarcontent: PropTypes.string
 }
 
 const SidebarPage = ({ data }) => {
