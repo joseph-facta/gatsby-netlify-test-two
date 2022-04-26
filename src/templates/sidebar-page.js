@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/sidebar";
 import PropTypes from "prop-types";
 import Content, { HTMLContent } from "../components/Content";
 //import Foundation from "foundation-sites";
