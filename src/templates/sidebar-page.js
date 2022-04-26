@@ -1,37 +1,64 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { graphql} from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Sidebar from "../components/Sidebar";
+import PropTypes from "prop-types";
+import Content, { HTMLContent } from "../components/Content";
 
 // eslint-disable-next-line
-export const SidebarPageTemplate = () => {
+export const SidebarPageTemplate = ({
+    title,
+    subtitle,
+    body,
+    bodyComponent,
+    sidebartitle,
+    sidebarcontent
+}) => {
+    const PageContent = bodyComponent || Content;
   return (
-    <div className="sidebar-page">
-        <h1>HERE IS TITLE</h1>
-        <Sidebar />
+    <div className="sidebar-wrapper">
+        <main className="main-content">
+            <h1>{title}</h1>
+            <h2>{subtitle}</h2>
+            <PageContent className="content" content={body}/>
+        </main>
+        <Sidebar  content={sidebarcontent} title={sidebartitle} />
     </div>
   );
 };
 
 SidebarPageTemplate.propTypes = {
-    title: PropTypes.string.isRequired
-};
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    body: PropTypes.node,
+    sidebar_title: PropTypes.string.isRequired,
+    sidebar_content: PropTypes.string
+}
 
 const SidebarPage = ({ data }) => {
-  const { markdownRemark: post } = data;
-
+    const { markdownRemark: post } = data;
+    const { frontmatter } = data.markdownRemark;
   return (
     <Layout>
-      <SidebarPageTemplate/>
+      <SidebarPageTemplate 
+        title={frontmatter.title}
+        subtitle={frontmatter.subtitle}
+        body={post.html}
+        bodyComponent={HTMLContent}
+        sidebartitle={frontmatter.sidebar_title}
+        sidebarcontent={frontmatter.sidebar_content}
+        
+      />
     </Layout>
   );
 };
 
 SidebarPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
+    data: PropTypes.shape({
+        markdownRemark: PropTypes.shape({
+            frontmatter: PropTypes.object,
+        }),
+    }),
 };
 
 export default SidebarPage;
@@ -39,9 +66,13 @@ export default SidebarPage;
 export const SidebarPageQuery = graphql`
   query SidebarPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      frontmatter {
-        title
-      }
+        html
+        frontmatter {
+          title
+          subtitle
+          sidebartitle
+          sidebarcontent
+        }   
     }
-  }
+}
 `;

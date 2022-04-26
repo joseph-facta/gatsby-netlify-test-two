@@ -2,21 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 
 
-const Sidebar = () => {
+export default function Sidebar(props) {
+    const {
+        title,
+        content
+    } = props
     return (
-        <React.Fragment>
-            <aside className="sidebar">
-                <h2 className="sidebar-title">Sidebar Title</h2>
-                <div>
-                    <ul className="list">
-                        <li className="list-item">List Item</li>
-                        <li className="list-item">List Item</li>
-                        <li className="list-item">List Item</li>
-                    </ul>
-                </div>
-            </aside>
-        </React.Fragment>
+        <aside className="sidebar">
+            <h2 className="sidebar-title">{title}</h2>
+            <ul className="sidebar-list">
+                {content}
+            </ul>
+        </aside>
     );
 }
 
-export default Sidebar;
+Sidebar.propTypes = {
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string
+};
